@@ -1,0 +1,50 @@
+class No:
+    def __init__(self, valor):
+        self.valor = valor
+        self.proximo = None
+
+# A classe No representa um nó em uma lista encadeada. Cada nó contém um valor e uma referência para o próximo
+# nó na sequência encadeada. Essa estrutura de dados permite percorrer a lista e acessar os valores 
+# individualmente, avançando para o próximo nó através do atributo proximo.
+# ela precissa de um valor que é o proximo, sempre vaiser none:
+
+    def __init__(self):
+        self._topo = None
+        self.tamanho = 0
+#Esse código define o método __init__ de uma classe, onde são inicializados dois atributos: _topo e tamanho.
+# O atributo _topo é usado para controlar o topo da estrutura de dados, e é inicializado como None. 
+# O atributo tamanho é usado para rastrear o número de elementos na estrutura, e é inicializado como 0. 
+# ela sempre precisa do _topo e do tamanho que é iniciado em zerro.
+        
+
+   
+    def __len__(self):
+        return self.tamanho
+#
+# len retorna o tamanho.
+   
+    def is_empty(self):
+        return self.tamanho == 0
+# verica se estar vazio
+   
+    def inserir(self, valor):
+        no = No(valor)
+        no.proximo = self._topo
+        self._topo = no
+        self.tamanho += 1
+# ele sempre vai precisar do topo e do valor.
+   
+    def remover(self):
+        if self.is_empty():
+            raise IndexError("A pilha está vazia")
+        valor = self._topo.valor
+        self._topo = self._topo.proximo
+        self.tamanho -= 1
+        return valor
+# verificar se ta vazio e emite a mensagem de erro e o primeiro valor sera igual aô topo. retorna o valor.
+   
+    def topo(self):
+        if self.is_empty():
+            raise IndexError("A pilha está vazia")
+        return self._topo.valor
+# verificar se o topo ta vazio,  emite a mensagem a pilha estar vazia caso contario diz o valor. 
